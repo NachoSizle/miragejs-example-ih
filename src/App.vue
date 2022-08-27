@@ -6,6 +6,21 @@
   <router-view/>
 </template>
 
+<script>
+import { mapActions } from 'pinia';
+import RemindersStore from '@/store/index';
+
+export default {
+  name: 'App',
+  methods: {
+    ...mapActions(RemindersStore, ['fetchReminders']),
+  },
+  created() {
+    this.fetchReminders();
+  },
+};
+</script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

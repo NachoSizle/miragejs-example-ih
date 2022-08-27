@@ -1,5 +1,9 @@
 import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 import App from './App.vue';
 import router from './router';
+import makeServer from './mocks/index';
 
-createApp(App).use(router).mount('#app');
+makeServer();
+
+createApp(App).use(router).use(createPinia()).mount('#app');
